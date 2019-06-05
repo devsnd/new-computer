@@ -1,0 +1,43 @@
+[merge]
+	tool = diffuse
+	cmd = "/usr/bin/diffuse $LOCAL $MERGED $REMOTE"
+
+[alias]
+	co = checkout
+	ps = push
+	pl = pull
+	c = commit
+	a = add -i
+	s = status
+	d = diff
+	b = branch
+	l = log --graph  --summary --decorate --all
+	t = tag
+        rb = rebase
+        rbc = rebase --continue
+        mt = mergetool
+	psall = "! CURBRANCH=`git rev-parse --abbrev-ref HEAD`; git co develop; git ps; git co master; git ps --follow-tags; git co $CURBRANCH"
+	psup = "! git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
+	cp = cherry-pick
+#	delete_remote_branch = git push --delete origin
+
+[credential]
+	helper = cache --timeout=3600
+
+[push]
+	default = simple
+
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green
+	newHighlight = green 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
